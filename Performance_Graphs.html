@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valet One - Performance Graphs</title>
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; padding: 40px; text-align: center;}
+        .chart-container { background: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 20px; max-width: 800px; margin: 0 auto 40px auto; }
+        h1 { color: #333; margin-bottom: 40px;}
+        h2 { color: #555; }
+    </style>
+</head>
+<body>
+
+    <h1>System Performance Analysis</h1>
+
+    <!-- Graph 1 -->
+    <div class="chart-container">
+        <h2>Graph 1: Hardware and Software Resource Consumption (MB)</h2>
+        <canvas id="resourceChart"></canvas>
+    </div>
+
+    <!-- Graph 2 -->
+    <div class="chart-container">
+        <h2>Graph 2: Incident Response Time Duration vs SLA (ms)</h2>
+        <canvas id="slaChart"></canvas>
+    </div>
+
+    <script>
+        // Graph 1: Resource Consumption (Pie Chart)
+        const ctx1 = document.getElementById('resourceChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Supabase Database (2457 MB)', 'React Frontend (819 MB)', 'File Storage (5324 MB)', 'Auth System (1126 MB)'],
+                datasets: [{
+                    label: 'Consumption in MB',
+                    data: [2457, 819, 5324, 1126],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        });
+
+        // Graph 2: Incident Response Time vs SLA (Bar Chart)
+        const ctx2 = document.getElementById('slaChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['User Login', 'Retrieving Assets', 'Legacy Setup', 'Upload Claim', 'Admin Approval'],
+                datasets: [
+                    {
+                        label: 'Current Average Time (ms)',
+                        data: [120, 145, 110, 820, 105],
+                        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Target SLA Limit (ms)',
+                        data: [200, 250, 200, 1000, 200],
+                        backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Time in Milliseconds (ms)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

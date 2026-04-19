@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" style="background-color: transparent; font-family: 'Segoe UI', system-ui, sans-serif;">
+  <defs>
+    <!-- Shadow effect for nodes -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.05" />
+    </filter>
+    
+    <!-- Gradients -->
+    <linearGradient id="primaryGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+
+    <!-- Arrow markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Connectors (Paths) -->
+  <!-- Owner to React -->
+  <path d="M 130 110 L 130 135 L 280 135 L 280 155" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="180" y="128" font-size="10" fill="#64748b" text-anchor="middle">Configures Rules</text>
+
+  <!-- Nominee to React -->
+  <path d="M 470 110 L 470 135 L 320 135 L 320 155" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="410" y="128" font-size="10" fill="#64748b" text-anchor="middle">Submits Claim</text>
+
+  <!-- React to Supabase -->
+  <path d="M 280 220 L 280 245 L 130 245 L 130 265" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="240" font-size="10" fill="#64748b" text-anchor="middle">Data Sync</text>
+
+  <!-- React to Oracle -->
+  <path d="M 320 220 L 320 245 L 470 245 L 470 265" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="400" y="240" font-size="10" fill="#64748b" text-anchor="middle">Routes Documents</text>
+
+  <!-- Supabase to Execution -->
+  <path d="M 130 330 L 130 355 L 280 355 L 280 375" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="180" y="350" font-size="10" fill="#64748b" text-anchor="middle">Database Rules</text>
+
+  <!-- Oracle to Execution -->
+  <path d="M 470 330 L 470 355 L 320 355 L 320 375" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrowGreen)"/>
+  <text x="410" y="350" font-size="10" fill="#10b981" font-weight="bold" text-anchor="middle">Verification Approved</text>
+
+  <!-- Nodes -->
+  <!-- Owner Node -->
+  <rect x="50" y="50" width="160" height="60" rx="8" ry="8" fill="url(#primaryGrad)" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="130" y="75" text-anchor="middle" font-weight="bold" font-size="14" fill="#0f172a">Vault Owner</text>
+  <text x="130" y="95" text-anchor="middle" font-size="12" fill="#64748b">Primary User</text>
+
+  <!-- Nominee Node -->
+  <rect x="390" y="50" width="160" height="60" rx="8" ry="8" fill="url(#primaryGrad)" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="470" y="75" text-anchor="middle" font-weight="bold" font-size="14" fill="#0f172a">Nominee</text>
+  <text x="470" y="95" text-anchor="middle" font-size="12" fill="#64748b">Verified Beneficiary</text>
+
+  <!-- React Frontend -->
+  <rect x="220" y="160" width="160" height="60" rx="8" ry="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="300" y="185" text-anchor="middle" font-weight="bold" font-size="14" fill="#0f172a">Valet One Client</text>
+  <text x="300" y="205" text-anchor="middle" font-size="12" fill="#64748b">React Interface</text>
+
+  <!-- Supabase -->
+  <rect x="50" y="270" width="160" height="60" rx="8" ry="8" fill="#ffffff" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+  <text x="130" y="295" text-anchor="middle" font-weight="bold" font-size="14" fill="#0f172a">Supabase Cloud</text>
+  <text x="130" y="315" text-anchor="middle" font-size="12" fill="#64748b">PostgreSQL / Auth</text>
+
+  <!-- Oracle / Verifier -->
+  <rect x="390" y="270" width="160" height="60" rx="8" ry="8" fill="#ffffff" stroke="#e11d48" stroke-width="2" filter="url(#shadow)"/>
+  <text x="470" y="295" text-anchor="middle" font-weight="bold" font-size="14" fill="#0f172a">Admin Vault Engine</text>
+  <text x="470" y="315" text-anchor="middle" font-size="12" fill="#64748b">Certificate Verification</text>
+
+  <!-- Transfer Execution -->
+  <rect x="180" y="380" width="240" height="70" rx="8" ry="8" fill="#f0fdf4" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+  <text x="300" y="405" text-anchor="middle" font-weight="bold" font-size="16" fill="#065f46">Legacy Transfer Execution</text>
+  <text x="300" y="425" text-anchor="middle" font-size="12" fill="#059669">Automated Smart Contract Protocol</text>
+</svg>
